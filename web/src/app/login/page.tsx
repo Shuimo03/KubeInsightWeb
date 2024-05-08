@@ -1,10 +1,10 @@
-import App from './v1/login';
+import App from './login';
 import '../public/login.css';
 
-const Home = () => (
+const LoginPage = () => (
   <div className='container'>
     <App /> 
   </div>
 );
 
-export default Home;
+export default LoginPage;
