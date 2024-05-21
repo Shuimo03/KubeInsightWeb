@@ -1,9 +1,9 @@
-import App from './login';
+import Login from './login';
 import '../public/login.css';
 
 const LoginPage = () => (
   <div className='container'>
-    <App /> 
+    <Login />
   </div>
 );
 
