@@ -27,9 +27,12 @@ const Login: React.FC = () => {
         body: JSON.stringify({ username: values.username, password: values.password }),
       });
       console.log("resp:", response.status);
-
+       
+      document.cookie = 'true';
+      //TODO 这里逻辑需要修改
       if(response.status === 200){
-        document.cookie = 'logined:true';
+        document.cookie = 'true';
+        console.log("doc.cookie:",document.cookie);
         router.push('/dashboard');
       }else{
         const data = await response.json();

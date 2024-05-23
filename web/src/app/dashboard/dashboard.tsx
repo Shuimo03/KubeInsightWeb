@@ -40,7 +40,7 @@ const items: MenuItem[] = [
   getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
 ];
 
-const App: React.FC = () => {
+const Dashboard: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -78,5 +78,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
-export {middleware};
+export default Dashboard;
