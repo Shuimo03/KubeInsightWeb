@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react';
-import { middleware } from '../middleware';
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -41,6 +40,10 @@ const items: MenuItem[] = [
 ];
 
 const Dashboard: React.FC = () => {
+
+  const loginStatus = localStorage.getItem('loginStatus');
+  console.log(loginStatus);
+
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },

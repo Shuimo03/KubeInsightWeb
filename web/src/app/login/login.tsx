@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import POST from '../router/login';
+import POST from '../api/login/route';
 import { Alert } from 'antd';
 
 import { Button, Checkbox, Form, Input } from 'antd';
@@ -20,19 +20,14 @@ const Login: React.FC = () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     try {
-      const response = await POST({
-        url: "http://localhost:8080/v1/iam/login",
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify({ username: values.username, password: values.password }),
-      });
-      console.log("resp:", response.status);
-       
-      document.cookie = 'true';
+      localStorage.setItem('loginStatus', 'false');
+      const loginStatus = localStorage.getItem('loginStatus');
+      console.log(loginStatus);
+    
+      const response = await POST(values.username,values.password);
       //TODO 这里逻辑需要修改
       if(response.status === 200){
-        document.cookie = 'true';
-        console.log("doc.cookie:",document.cookie);
+        localStorage.setItem('loginStatus', 'true');
         router.push('/dashboard');
       }else{
         const data = await response.json();
